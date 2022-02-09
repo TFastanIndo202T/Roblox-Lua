@@ -1,0 +1,368 @@
+-- Simple Life GUI
+-- Version: 1.0
+-- Git TFastanIndo202T | Pastebin FastanIndo202
+-- Instances:
+
+local Simple = Instance.new("ScreenGui")
+local Login = Instance.new("Frame")
+local LoginPageBar = Instance.new("Frame")
+local LoginPagetext = Instance.new("TextLabel")
+local Key = Instance.new("TextBox")
+local ConfirmButton = Instance.new("TextButton")
+local Main = Instance.new("Frame")
+local GUIName = Instance.new("TextLabel")
+local WScustom = Instance.new("TextBox")
+local WSSetButton = Instance.new("TextButton")
+local WSResetButton = Instance.new("TextButton")
+local Hitboxcustom = Instance.new("TextBox")
+local HitboxSetButton = Instance.new("TextButton")
+local INFJumpButton = Instance.new("TextButton")
+local FlyJumpButton = Instance.new("TextButton")
+
+--Properties:
+
+Simple.Name = "Simple"
+Simple.Parent = game.CoreGui
+
+Login.Name = "Login"
+Login.Parent = Simple
+Login.Active = true
+Login.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Login.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Login.BorderSizePixel = 4
+Login.Position = UDim2.new(0.413443625, 0, 0.197343588, 0)
+Login.Selectable = true
+Login.Size = UDim2.new(0, 193, 0, 169)
+
+LoginPageBar.Name = "LoginPageBar"
+LoginPageBar.Parent = Login
+LoginPageBar.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+LoginPageBar.BorderColor3 = Color3.fromRGB(72, 72, 72)
+LoginPageBar.BorderSizePixel = 4
+LoginPageBar.Size = UDim2.new(0, 193, 0, 34)
+
+LoginPagetext.Name = "LoginPagetext"
+LoginPagetext.Parent = LoginPageBar
+LoginPagetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoginPagetext.BackgroundTransparency = 1.000
+LoginPagetext.BorderColor3 = Color3.fromRGB(72, 72, 72)
+LoginPagetext.Size = UDim2.new(0, 193, 0, 34)
+LoginPagetext.Font = Enum.Font.Code
+LoginPagetext.Text = "Login Page"
+LoginPagetext.TextColor3 = Color3.fromRGB(44, 44, 44)
+LoginPagetext.TextSize = 20.000
+
+Key.Name = "Key"
+Key.Parent = Login
+Key.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Key.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Key.BorderSizePixel = 3
+Key.Position = UDim2.new(0.0673575103, 0, 0.300000012, 0)
+Key.Size = UDim2.new(0, 166, 0, 33)
+Key.Font = Enum.Font.Code
+Key.PlaceholderColor3 = Color3.fromRGB(44, 44, 44)
+Key.Text = "Put Key"
+Key.TextColor3 = Color3.fromRGB(44, 44, 44)
+Key.TextSize = 14.000
+
+ConfirmButton.Name = "ConfirmButton"
+ConfirmButton.Parent = Login
+ConfirmButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+ConfirmButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+ConfirmButton.BorderSizePixel = 3
+ConfirmButton.Position = UDim2.new(0.0673575103, 0, 0.600000024, 0)
+ConfirmButton.Size = UDim2.new(0, 166, 0, 33)
+ConfirmButton.Font = Enum.Font.SourceSans
+ConfirmButton.Text = "Confirm"
+ConfirmButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+ConfirmButton.TextSize = 18.000
+ConfirmButton.TextStrokeColor3 = Color3.fromRGB(44, 44, 44)
+
+Main.Name = "Main"
+Main.Parent = Simple
+Main.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Main.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Main.BorderSizePixel = 4
+Main.Position = UDim2.new(0.428360164, 0, 0.165009946, 0)
+Main.Size = UDim2.new(0, 227, 0, 261)
+Main.Visible = false
+
+GUIName.Name = "GUI Name"
+GUIName.Parent = Main
+GUIName.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+GUIName.BorderColor3 = Color3.fromRGB(72, 72, 72)
+GUIName.BorderSizePixel = 3
+GUIName.Size = UDim2.new(0, 227, 0, 30)
+GUIName.Font = Enum.Font.Code
+GUIName.Text = "Simple Life GUI"
+GUIName.TextColor3 = Color3.fromRGB(44, 44, 44)
+GUIName.TextSize = 20.000
+
+WScustom.Name = "WS custom"
+WScustom.Parent = Main
+WScustom.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+WScustom.BorderColor3 = Color3.fromRGB(72, 72, 72)
+WScustom.BorderSizePixel = 3
+WScustom.Position = UDim2.new(0.0500000007, 0, 0.169, 0)
+WScustom.Size = UDim2.new(0, 78, 0, 22)
+WScustom.Font = Enum.Font.Code
+WScustom.Text = "0"
+WScustom.TextColor3 = Color3.fromRGB(44, 44, 44)
+WScustom.TextSize = 14.000
+
+WSSetButton.Name = "WS Set Button"
+WSSetButton.Parent = Main
+WSSetButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+WSSetButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+WSSetButton.BorderSizePixel = 3
+WSSetButton.Position = UDim2.new(0.0484581515, 0, 0.325670481, 0)
+WSSetButton.Size = UDim2.new(0, 78, 0, 22)
+WSSetButton.Font = Enum.Font.Code
+WSSetButton.Text = "Set Speed"
+WSSetButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+WSSetButton.TextSize = 14.000
+WSSetButton.MouseButton1Click:connect(function()
+	getgenv().WalkSpeedValue = WScustom.Text;
+	local Player = game:service'Players'.LocalPlayer;
+	Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+	end)
+	Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+
+
+
+WSResetButton.Name = "WS Reset Button"
+WSResetButton.Parent = Main
+WSResetButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+WSResetButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+WSResetButton.BorderSizePixel = 3
+WSResetButton.Position = UDim2.new(0.048458159, 0, 0.482758611, 0)
+WSResetButton.Size = UDim2.new(0, 78, 0, 22)
+WSResetButton.Font = Enum.Font.Code
+WSResetButton.Text = "Reset Speed"
+WSResetButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+WSResetButton.TextSize = 14.000
+WSResetButton.MouseButton1Click:connect(function()
+	getgenv().WalkSpeedValue = 16;
+	local Player = game:service'Players'.LocalPlayer;
+	Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+		Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+	end)
+	Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+
+Hitboxcustom.Name = "Hitbox custom"
+Hitboxcustom.Parent = Main
+Hitboxcustom.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+Hitboxcustom.BorderColor3 = Color3.fromRGB(72, 72, 72)
+Hitboxcustom.BorderSizePixel = 3
+Hitboxcustom.Position = UDim2.new(0.600660801, 0, 0.169, 0)
+Hitboxcustom.Size = UDim2.new(0, 78, 0, 22)
+Hitboxcustom.Font = Enum.Font.Code
+Hitboxcustom.Text = "0"
+Hitboxcustom.TextColor3 = Color3.fromRGB(44, 44, 44)
+Hitboxcustom.TextSize = 14.000
+
+HitboxSetButton.Name = "Hitbox Set Button"
+HitboxSetButton.Parent = Main
+HitboxSetButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+HitboxSetButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+HitboxSetButton.BorderSizePixel = 3
+HitboxSetButton.Position = UDim2.new(0.599118948, 0, 0.325670481, 0)
+HitboxSetButton.Size = UDim2.new(0, 78, 0, 22)
+HitboxSetButton.Font = Enum.Font.Code
+HitboxSetButton.Text = "Set Hitbox"
+HitboxSetButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+HitboxSetButton.TextSize = 14.000
+HitboxSetButton.MouseButton1Click:connect(function()
+	for i, v in pairs(game.Players:GetPlayers()) do
+		if v.Name ~= game.Players.LocalPlayer.Name then
+			pcall(function()
+				v.Character.HumanoidRootPart.Size = Vector3.new(Hitboxcustom.Text, Hitboxcustom.Text, Hitboxcustom.Text)
+				v.Character.HumanoidRootPart.Transparency = 0.8
+				v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Light grey")
+				v.Character.HumanoidRootPart.Material = "SmoothPlastic"
+				v.Character.HumanoidRootPart.CanCollide = false
+
+
+				Rainbow.MouseButton1Click:Connect(function()
+					local TweenService = game:GetService("TweenService")
+					local part = v.Character.HumanoidRootPart
+					local TweeningInformation = TweenInfo.new(
+						2,
+						Enum.EasingStyle.Quad,
+						Enum.EasingDirection.Out,
+						753475938457843579348573,
+						true,
+						0
+					)
+
+					local PartProperties = {
+						Color = Color3.fromRGB(255,0,0)
+					}
+
+					local Tween = TweenService:Create(part,TweeningInformation,PartProperties)
+					Tween:Play()
+					Rainbow.BackgroundColor3 = Color3.fromRGB(0,225,0)
+
+
+				end)
+			end)
+		end
+	end
+end)
+
+ConfirmButton.MouseButton1Down:connect(function()
+	if Key.Text == "No Key LOL" then
+		Main.Visible = true
+		Login.Visible = false
+	end
+end)
+
+INFJumpButton.Name = "INF Jump Button"
+INFJumpButton.Parent = Main
+INFJumpButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+INFJumpButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+INFJumpButton.BorderSizePixel = 3
+INFJumpButton.Position = UDim2.new(0.599118948, 0, 0.482758611, 0)
+INFJumpButton.Size = UDim2.new(0, 78, 0, 22)
+INFJumpButton.Font = Enum.Font.Code
+INFJumpButton.Text = "INF Jump"
+INFJumpButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+INFJumpButton.TextSize = 14.000
+INFJumpButton.MouseButton1Click:connect(function()
+	local Player = game:GetService'Players'.LocalPlayer;
+	local UIS = game:GetService'UserInputService';
+
+	_G.JumpHeight = 50;
+
+	function Action(Object, Function) if Object ~= nil then Function(Object); end end
+
+	UIS.InputBegan:connect(function(UserInput)
+		if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+			Action(Player.Character.Humanoid, function(self)
+				if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+					Action(self.Parent.HumanoidRootPart, function(self)
+						self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+					end)
+				end
+			end)
+		end
+	end)
+end)
+
+
+FlyJumpButton.Name = "Fly Jump Button"
+FlyJumpButton.Parent = Main
+FlyJumpButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+FlyJumpButton.BorderColor3 = Color3.fromRGB(72, 72, 72)
+FlyJumpButton.BorderSizePixel = 3
+FlyJumpButton.Position = UDim2.new(0.599118948, 0, 0.632183909, 0)
+FlyJumpButton.Size = UDim2.new(0, 78, 0, 22)
+FlyJumpButton.Font = Enum.Font.Code
+FlyJumpButton.Text = "Fly Jump"
+FlyJumpButton.TextColor3 = Color3.fromRGB(44, 44, 44)
+FlyJumpButton.TextSize = 14.000
+FlyJumpButton.MouseButton1Click:connect(function()
+	local infjump = true
+	game:GetService("UserInputService").JumpRequest:connect(function()
+		if infjump then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+		end
+	end)
+end)
+
+
+-- Scripts:
+
+local function LEHEH_fake_script() -- Login.Draggable 
+	local script = Instance.new('LocalScript', Login)
+
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = 
+
+			position}):Play()
+	end
+
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType 
+
+			== Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType 
+
+			== Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+end
+coroutine.wrap(LEHEH_fake_script)()
+local function GEBORM_fake_script() -- Main.Draggable 
+	local script = Instance.new('LocalScript', Main)
+
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = 
+
+			position}):Play()
+	end
+
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType 
+
+			== Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType 
+
+			== Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+end
+coroutine.wrap(GEBORM_fake_script)()
